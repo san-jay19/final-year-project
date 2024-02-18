@@ -180,20 +180,7 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="jobSeekers.php">Job Seekers</a></li>
-                <li><a href="employers.php">Employers</a></li>
-                <li><a href="aboutUs.php">About Us</a></li>
-                <li><a href="contact.php">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <?php include('navBar.php'); ?>
 
     <section>
         <div class="container">

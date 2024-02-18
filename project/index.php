@@ -6,26 +6,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JobWalla!</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid #ddd; 
+}
+
+.hero {
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    color: #666;
+    font-size: 18px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    border: 2px solid #fff; 
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid #fff; 
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 10px; 
+    }
+
+    .logo img {
+        width: 70%; 
+        margin-bottom: 10px;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+}
+    </style>
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="JobWalla!">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="jobSeekers.php">Job Seekers</a></li>
-                <li><a href="employers.php">Employers</a></li>
-                <li><a href="aboutUs.php">About Us</a></li>
-                <li><a href="contact.php">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
+   <?php include('navBar.php'); ?>
     <section id="home">
         <div class="hero">
             <h1>Welcome to JobWalla!</h1>

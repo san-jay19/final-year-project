@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <style>
-       
+         body,
+        h1,
+        h2,
+        h3,
+        p,
+        ul {
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             font-family: 'Arial', sans-serif;
