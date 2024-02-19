@@ -1,3 +1,7 @@
+<?php
+require "connection.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -214,6 +218,10 @@
         </div>
     </section>
 
+    <?php
+    
+
+?>
     <footer>
         &copy; 2024 JobSeeker. All rights reserved.
     </footer>

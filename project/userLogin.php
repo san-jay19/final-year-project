@@ -176,6 +176,10 @@
                 width: 80%;
             }
         }
+        span{
+            color: #45a049;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -199,6 +203,11 @@
                 <div class="form-group">
                     <button type="submit">Login</button>
                 </div>
+                <center>
+                <div class="form-group">
+                    For First Time Users,<span onclick="location.href='userSignIn.php'"> Signup</span>
+                </div>
+                </center>
             </form>
         </div>
     </section>
