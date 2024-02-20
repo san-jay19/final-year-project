@@ -42,4 +42,11 @@ if(isset($_POST['register_btn'])){
     }
 }
 
+if(isset($_POST['loginBtn'])){
+    $username = mysqli_real_escape_string($conn,$_POST['username']);
+    $password = mysqli_real_escape_string($conn,$_POST['password']);
+
+
+    
+}
 ?>
