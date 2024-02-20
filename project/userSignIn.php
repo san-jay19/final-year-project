@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "connection.php";
 ?>
 
@@ -122,6 +123,26 @@ require "connection.php";
             border-radius: 4px;
             box-sizing: border-box;
         }
+        .alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
 
         footer {
             background-color: #333;
@@ -171,25 +192,25 @@ require "connection.php";
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="jobSeekers.php">Job Seekers</a></li>
-                <li><a href="employers.php">Employers</a></li>
-                <li><a href="aboutUs.php">About Us</a></li>
-                <li><a href="contact.php">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
+<?php include('navBar.php') ?>
+<?php if(isset($_SESSION['message'])){
+    ?>
+<div class="alert">
+<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+<strong>Hey!</strong> <?=$_SESSION['message'] ?>
+</div>
+<?php
+unset($_SESSION['message']);
+}
+?>
     <section>
         <div class="container">
-            <form action="connection.php" method="POST">
+            <form action="auth.php" method="POST">
                 <h2>Signup</h2>
+                <div class="form-group">
+                    <label for="username">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>
@@ -203,16 +224,19 @@ require "connection.php";
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-
                 <div class="form-group">
-                    <label for="user-category">User Category:</label>
-                    <select id="user-category" name="user-category" required>
-                        <option value="job-seeker">Job Seeker</option>
+                    <label for="cpassword">Confirm Password:</label>
+                    <input type="password" id="cpassword" name="cpassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="user_category">User Category:</label>
+                    <select id="user_category" name="user_category" required>
+                        <option value="job_seeker">Job Seeker</option>
                         <option value="recruiter">Recruiter</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <button type="submit">Signup</button>
+                    <button type="submit" name="register_btn">Register</button>
                 </div>
             </form>
         </div>
