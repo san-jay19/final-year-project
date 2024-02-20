@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,6 +59,34 @@
             margin: 0;
             padding: 0;
         }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
 
@@ -72,7 +102,28 @@
                 <li><a href="employers.php">Employers</a></li>
                 <li><a href="aboutUs.php">About Us</a></li>
                 <li><a href="contact.php">Contact</a></li>
-                <li><a href="userLogin.php">Login</a></li>
+                <?php 
+                if(isset($_SESSION['auth']))
+                {
+                    ?>
+                    <li class="dropdown">
+                    <a href="#" class="dropbtn"><?= $_SESSION['auth_user']['username'] ?></a>
+                    <div class="dropdown-content">
+                        <a href="userLogout.php">Logout</a>
+                    </div>
+                </li>
+                <?php
+                }
+                else{
+                    ?>
+                    <li><a href="userSignIn.php">Register</a></li>
+                    <li><a href="userLogin.php">Login</a></li>
+                   
+                    <?php
+                }
+                    ?>
+                    
+                
             </ul>
         </nav>
     </header>

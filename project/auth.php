@@ -45,8 +45,53 @@ if(isset($_POST['register_btn'])){
 if(isset($_POST['loginBtn'])){
     $username = mysqli_real_escape_string($conn,$_POST['username']);
     $password = mysqli_real_escape_string($conn,$_POST['password']);
-
-
+    $usercategory = mysqli_real_escape_string($conn,$_POST['user_category']);
     
+    $login_query_1 = "SELECT * FROM jobseeker WHERE username ='$username' AND password='$password'";
+    $login_query_2 = "SELECT * FROM recruiter WHERE username ='$username' AND password='$password'";
+
+    $login_query_1_run = mysqli_query($conn , $login_query_1);
+    $login_query_2_run = mysqli_query($conn , $login_query_2);
+
+    if(mysqli_num_rows($login_query_1_run) > 0) {
+        $_SESSION['auth'] = true;
+
+        $userdata = mysqli_fetch_array($login_query_1_run);
+
+        $username = $userdata['username'];
+        $useremail = $user['email'];
+
+        $_SESSION['auth_user'] = [
+            'username' => $username,
+            'email' => $useremail
+        ];
+
+
+        $_SESSION['message'] = "Logged In Successfully";
+        header('Location: index.php');
+    }
+
+    elseif (mysqli_num_rows($login_query_2_run) > 0) {
+        $_SESSION['auth'] = true;
+
+        $userdata = mysqli_fetch_array($login_query_2_run);
+
+        $username = $userdata['username'];
+        $useremail = $user['email'];
+
+        $_SESSION['auth_user'] = [
+            'username' => $username,
+            'email' => $useremail
+        ];
+
+
+        $_SESSION['message'] = "Logged In Successfully";
+        header('Location: index.php');
+    }
+
+    else{
+        $_SESSION['message'] = "Invalid Credentials";
+        header('Location: userLogin.php');
+    }
 }
 ?>

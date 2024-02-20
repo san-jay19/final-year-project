@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +14,27 @@
     margin: 0;
     padding: 0;
 }
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
 
 body {
     font-family: 'Arial', sans-serif;
@@ -99,6 +123,16 @@ footer {
 <body>
 
    <?php include('navBar.php'); ?>
+   <?php if(isset($_SESSION['message'])){
+    ?>
+<div class="alert">
+<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+<strong>Hey!</strong> <?=$_SESSION['message'] ?>
+</div>
+<?php
+unset($_SESSION['message']);
+}
+?>
     <section id="home">
         <div class="hero">
             <h1>Welcome to JobWalla!</h1>

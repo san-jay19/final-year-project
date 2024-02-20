@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if(isset($_SESSION['auth'])){
+    $_SESSION['message'] = "You are already logged in!!";
+    header('Location: index.php');
+    exit();
+}
+
+require "connection.php";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -141,6 +154,26 @@
             width: 100%;
             border-top: 2px solid #fff;
         }
+        .alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
 
 
         @media (max-width: 768px) {
@@ -185,13 +218,22 @@
 
 <body>
   <?php include('navBar.php'); ?>
-
+  <?php if(isset($_SESSION['message'])){
+    ?>
+<div class="alert">
+<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+<strong>Hey!</strong> <?=$_SESSION['message'] ?>
+</div>
+<?php
+unset($_SESSION['message']);
+}
+?>
     <section>
         <div class="container">
             <center>
                 <h2>Log In</h2>
             </center><br>
-            <form action="loginAction.php" method="POST">
+            <form action="auth.php" method="POST">
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>
@@ -201,8 +243,16 @@
                     <input type="password" id="password" name="password" required>
                 </div>
                 <div class="form-group">
+                    <label for="user_category">User Category:</label>
+                    <select id="user_category" name="user_category" required>
+                        <option value="job_seeker">Job Seeker</option>
+                        <option value="recruiter">Recruiter</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <button type="submit" name="loginBtn">Login</button>
                 </div>
+                
                 <center>
                 <div class="form-group">
                     For First Time Users,<span onclick="location.href='userSignIn.php'"> Signup</span>
