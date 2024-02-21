@@ -242,13 +242,7 @@ unset($_SESSION['message']);
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <div class="form-group">
-                    <label for="user_category">User Category:</label>
-                    <select id="user_category" name="user_category" required>
-                        <option value="job_seeker">Job Seeker</option>
-                        <option value="recruiter">Recruiter</option>
-                    </select>
-                </div>
+                
                 <div class="form-group">
                     <button type="submit" name="loginBtn">Login</button>
                 </div>
