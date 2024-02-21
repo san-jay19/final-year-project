@@ -45,7 +45,7 @@ if(isset($_POST['register_btn'])){
 if(isset($_POST['loginBtn'])){
     $username = mysqli_real_escape_string($conn,$_POST['username']);
     $password = mysqli_real_escape_string($conn,$_POST['password']);
-    $usercategory = mysqli_real_escape_string($conn,$_POST['user_category']);
+   
     
     $login_query_1 = "SELECT * FROM jobseeker WHERE username ='$username' AND password='$password'";
     $login_query_2 = "SELECT * FROM recruiter WHERE username ='$username' AND password='$password'";
@@ -59,11 +59,13 @@ if(isset($_POST['loginBtn'])){
         $userdata = mysqli_fetch_array($login_query_1_run);
 
         $username = $userdata['username'];
-        $useremail = $user['email'];
+        $useremail = $userdata['email'];
+        $usercategory = $userdata['category'];
 
         $_SESSION['auth_user'] = [
             'username' => $username,
-            'email' => $useremail
+            'email' => $useremail,
+            'category' =>$usercategory
         ];
 
 
@@ -78,10 +80,12 @@ if(isset($_POST['loginBtn'])){
 
         $username = $userdata['username'];
         $useremail = $user['email'];
+        $usercategory = $userdata['category'];
 
         $_SESSION['auth_user'] = [
             'username' => $username,
-            'email' => $useremail
+            'email' => $useremail,
+            'category' =>$usercategory
         ];
 
 
