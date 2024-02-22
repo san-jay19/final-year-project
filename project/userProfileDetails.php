@@ -1,3 +1,8 @@
+<?php
+session_start();
+include "auth.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -135,7 +140,7 @@
             <div class="profile-card">
                 <img src="user-avatar.jpg" alt="User Avatar">
                 <div class="profile-info">
-                    <h2 contenteditable="true">User Name</h2>
+                    <h2 contenteditable="true"></h2>
                     <p>Email: <span class="editable" contenteditable="true">user@example.com</span></p>
                     <p>User Category: <span class="editable" contenteditable="true">Job Seeker</span></p>
                     <h2>Education</h2>
