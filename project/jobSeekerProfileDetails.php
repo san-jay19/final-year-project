@@ -1,10 +1,14 @@
+<?php
+include "auth.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>Job Seeker Profile</title>
     <style>
         body,
         h1,
@@ -56,7 +60,6 @@
 
         section {
             padding: 60px 0;
-            border-bottom: 1px solid #ddd;
             text-align: center;
         }
 
@@ -70,19 +73,24 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 60%;
             margin: 0 auto;
         }
 
         .profile-card img {
             width: 100%;
             border-radius: 5px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .profile-info {
             text-align: left;
             color: #333;
+        }
+
+        .profile-info h2 {
+            color: #555;
+            margin-bottom: 10px;
         }
 
         .profile-info p {
@@ -99,21 +107,51 @@
             width: 100%;
             border-top: 2px solid #fff;
         }
+
+        .editable {
+            border: 1px solid #ddd;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .edit-button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .edit-button:hover {
+            background-color: #555;
+        }
     </style>
 </head>
 
 <body>
- <?php include('navBar.php'); ?>
+<?php include('navBar.php'); ?>
 
     <section>
         <div class="container">
             <div class="profile-card">
                 <img src="user-avatar.jpg" alt="User Avatar">
                 <div class="profile-info">
-                    <h2>User Name</h2>
-                    <p>Email: user@example.com</p>
-                    <p>User Category: Job Seeker</p>
+                    <h2 contenteditable="true"></h2>
+                    <p>Email: <span class="editable" contenteditable="true">user@example.com</span></p>
+                    <p>User Category: <span class="editable" contenteditable="true">Job Seeker</span></p>
+                    <h2>Education</h2>
+                    <p>Degree: <span class="editable" contenteditable="true">Bachelor of Science in Computer Science</span></p>
+                    <p>School: <span class="editable" contenteditable="true">University of Example</span></p>
+                    <p>Graduation Year: <span class="editable" contenteditable="true">2022</span></p>
+                    <h2>Work Experience</h2>
+                    <p>Job Title: <span class="editable" contenteditable="true">Software Developer</span></p>
+                    <p>Company: <span class="editable" contenteditable="true">Example Tech</span></p>
+                    <p>Duration: <span class="editable" contenteditable="true">2019 - Present</span></p>
                 </div>
+                <button class="edit-button" onclick="enableEditing()">Edit</button>
             </div>
         </div>
     </section>
@@ -121,6 +159,7 @@
     <footer>
         &copy; 2024 JobSeeker. All rights reserved.
     </footer>
+
 </body>
 
 </html>
