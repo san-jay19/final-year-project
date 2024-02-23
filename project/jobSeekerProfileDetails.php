@@ -2,164 +2,80 @@
 include "auth.php";
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Seeker Profile</title>
+    <title>Job Seeker Details</title>
     <style>
-        body,
-        h1,
-        h2,
-        h3,
-        p,
-        ul {
-            margin: 0;
-            padding: 0;
-        }
-
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             background-color: #f4f4f4;
         }
 
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #fff;
-        }
-
-        .logo img {
-            width: 50px;
-            height: 50px;
-            border-radius: 5px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        nav ul li {
-            margin-right: 20px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        section {
-            padding: 60px 0;
-            text-align: center;
-        }
-
         .container {
             width: 80%;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        .profile-card {
+        .column {
+            width: 48%;
+        }
+
+        .details {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 60%;
-            margin: 0 auto;
-        }
-
-        .profile-card img {
-            width: 100%;
-            border-radius: 5px;
             margin-bottom: 20px;
         }
 
-        .profile-info {
-            text-align: left;
-            color: #333;
-        }
-
-        .profile-info h2 {
-            color: #555;
+        .details img {
+            max-width: 100%;
+            border-radius: 5px;
             margin-bottom: 10px;
         }
 
-        .profile-info p {
-            margin-bottom: 10px;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
+        h2 {
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            border-top: 2px solid #fff;
-        }
-
-        .editable {
-            border: 1px solid #ddd;
-            padding: 8px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            width: 100%;
-        }
-
-        .edit-button {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .edit-button:hover {
-            background-color: #555;
+            color: #333;
         }
     </style>
 </head>
-
 <body>
-<?php include('navBar.php'); ?>
-
-    <section>
-        <div class="container">
-            <div class="profile-card">
-                <img src="user-avatar.jpg" alt="User Avatar">
-                <div class="profile-info">
-                    <h2 contenteditable="true"></h2>
-                    <p>Email: <span class="editable" contenteditable="true">user@example.com</span></p>
-                    <p>User Category: <span class="editable" contenteditable="true">Job Seeker</span></p>
-                    <h2>Education</h2>
-                    <p>Degree: <span class="editable" contenteditable="true">Bachelor of Science in Computer Science</span></p>
-                    <p>School: <span class="editable" contenteditable="true">University of Example</span></p>
-                    <p>Graduation Year: <span class="editable" contenteditable="true">2022</span></p>
-                    <h2>Work Experience</h2>
-                    <p>Job Title: <span class="editable" contenteditable="true">Software Developer</span></p>
-                    <p>Company: <span class="editable" contenteditable="true">Example Tech</span></p>
-                    <p>Duration: <span class="editable" contenteditable="true">2019 - Present</span></p>
-                </div>
-                <button class="edit-button" onclick="enableEditing()">Edit</button>
+    <?php require "navBar.php"; ?>
+    <h2>Your Details</h2>
+    <div class="container">
+        <div class="column">
+            <div class="details">
+                <h3>Personal Information</h3>
+                <p><strong>Full Name:</strong> <?php echo $_SESSION['user_details']['username']; ?></p>
+                <p><strong>Phone Number:</strong> <?php echo $_SESSION['user_details']['name']; ?></p>
+                <p><strong>Email Address:</strong> <?php echo$_SESSION['user_details']['name']; ?></p>
+                <p><strong>Address:</strong> <?php echo $_SESSION['user_details']['name'];?></p>
+                <p><strong>Profile Picture:</strong> <img src="<?php echo $_SESSION['user_details']['name']; ?>" alt="Profile Picture"></p>
             </div>
         </div>
-    </section>
 
-    <footer>
-        &copy; 2024 JobSeeker. All rights reserved.
-    </footer>
-
+        <div class="column">
+            <div class="details">
+                <h3>Professional Information</h3>
+                <p><strong>Resume/CV:</strong> <?php echo $_SESSION['user_details']['name']; ?></p>
+                <p><strong>Work Experience:</strong> <?php echo nl2br($_SESSION['user_details']['name']); ?></p>
+                <p><strong>Education:</strong> <?php echo nl2br($_SESSION['user_details']['name']); ?></p>
+                <p><strong>Skills:</strong> <?php echo $_SESSION['user_details']['name']; ?></p>
+                <p><strong>Certifications/Licenses:</strong> <?php echo $_SESSION['user_details']['name']; ?></p>
+                <p><strong>Username:</strong> <?php echo $_SESSION['user_details']['name']; ?></p>
+            </div>
+        </div>
+    </div>
+    
 </body>
-
 </html>

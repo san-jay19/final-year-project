@@ -51,12 +51,14 @@ if(isset($_POST['loginBtn'])){
 
     $details_query_1 = "SELECT * FROM jobseekerdetails WHERE username='$username' ";
     $details_query_2 = "SELECT * FROM recruiterdetails WHERE username='$username' ";
+    $details_query_3 = "SELECT name,phoneno,email,address,experience,education,certifications,skills FROM jobseekerdetails WHERE username='$username'";
 
     $login_query_1_run = mysqli_query($conn , $login_query_1);
     $login_query_2_run = mysqli_query($conn , $login_query_2);
 
     $details_query_1_run = mysqli_query($conn, $details_query_1);
     $details_query_2_run = mysqli_query($conn, $details_query_2);
+    $details_query_3_run = mysqli_query($conn, $details_query_3);
 
     if(mysqli_num_rows($login_query_1_run) > 0) {
         $_SESSION['auth'] = true;
@@ -97,12 +99,14 @@ if(isset($_POST['loginBtn'])){
             'skills' => $details_skills
         ];
 
-
-
-
-
         $_SESSION['message'] = "Logged In Successfully";
-        header('Location: index.php');
+        if(mysqli_num_rows($details_query_3_run) > 0){
+            header('Location: index.php');
+        }
+        else{
+            header('Location: jobSeekerProfileDetailsForm.php');
+        }
+       
     }
 
     elseif (mysqli_num_rows($login_query_2_run) > 0) {

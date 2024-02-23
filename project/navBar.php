@@ -109,6 +109,16 @@
                     <li class="dropdown">
                     <a href="#" class="dropbtn"><?= $_SESSION['auth_user']['username'] ?></a>
                     <div class="dropdown-content">
+                        <?php if(isset($_SESSION['auth_user']['category'])){?>
+                            
+                    <?php if($_SESSION['auth_user']['category']=='recruiter'){?>
+                    <a href="recruiterProfileDetails.php">View Profile</a>
+                    <?php }?>
+
+                    <?php if($_SESSION['auth_user']['category'] =='job_seeker'){?>
+                    <a href="jobSeekerProfileDetails.php">View Profile</a>
+                    <?php }?>
+                    <?php }?>
                         <a href="userLogout.php">Logout</a>
                     </div>
                 </li>

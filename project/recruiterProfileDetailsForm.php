@@ -150,17 +150,17 @@ session_start();
     <?php require "navBar.php"; ?>
 
     <br>
-    <center><h2>Update Your Profile</h2></center>
+    <center><h2>Update Company's Profile</h2></center>
     <br>
     
-    <form action="auth.php" method="post" enctype="multipart/form-data">
+    <form action="#" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="profilePicture">Profile Picture:</label>
             <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
         </div>
 
         <div class="form-group">
-            <label for="fullName">Full Name:</label>
+            <label for="fullName">Company Name:</label>
             <input type="text" id="fullName" name="fullName" required>
         </div>
 
@@ -180,43 +180,20 @@ session_start();
         </div>
 
         <div class="form-group">
-            <label for="resume">Resume/CV Upload:</label>
-            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-        </div>
-
-        <div class="form-group">
-            <label for="workExperience">Work Experience:</label>
-            <textarea id="workExperience" name="workExperience" rows="8" required></textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="education">Education Details:</label>
+            <label for="education">About the Company:</label>
             <textarea id="education" name="education" rows="8" required></textarea>
         </div>
 
         <div class="form-group">
-            <label for="skills">Skills and Expertise:</label>
+            <label for="workExperience">Company's Culture and Values:</label>
+            <textarea id="workExperience" name="workExperience" rows="8" required></textarea>
+        </div>
+
+       
+
+        <div class="form-group">
+            <label for="skills">Roles currently offering</label>
             <textarea id="skills" name="skills" rows="8" required></textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="words">Write a few words about yourself...</label>
-            <textarea id="words" name="words" rows="8" required></textarea>
-        </div>
-        
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="certifications">Certifications or Licenses:</label>
-            <input type="text" id="certifications" name="certifications">
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
         </div>
         
         <div class="form-group">
