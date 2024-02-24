@@ -43,15 +43,16 @@ if(isset($_POST['register_btn'])){
 }
 
 if(isset($_POST['loginBtn'])){
+
     $username = mysqli_real_escape_string($conn,$_POST['username']);
     $password = mysqli_real_escape_string($conn,$_POST['password']);
    
     $login_query_1 = "SELECT * FROM jobseeker WHERE username ='$username' AND password='$password'";
     $login_query_2 = "SELECT * FROM recruiter WHERE username ='$username' AND password='$password'";
 
-    $details_query_1 = "SELECT * FROM jobseekerdetails WHERE username='$username' ";
-    $details_query_2 = "SELECT * FROM recruiterdetails WHERE username='$username' ";
-    $details_query_3 = "SELECT name,phoneno,email,address,experience,education,certifications,skills FROM jobseekerdetails WHERE username='$username'";
+    $details_query_1 = "SELECT * FROM jobseekerdetails WHERE username='$username' ";//Fetch details from jobseeker table 
+    $details_query_2 = "SELECT * FROM recruiterdetails WHERE username='$username' ";//Fetch details from recruiter table 
+    $details_query_3 = "SELECT name,phoneno,email,address,experience,education,certifications,skills FROM jobseekerdetails WHERE username='$username'";//Fetch details from jobseekerdetails tbale
 
     $login_query_1_run = mysqli_query($conn , $login_query_1);
     $login_query_2_run = mysqli_query($conn , $login_query_2);
@@ -60,7 +61,7 @@ if(isset($_POST['loginBtn'])){
     $details_query_2_run = mysqli_query($conn, $details_query_2);
     $details_query_3_run = mysqli_query($conn, $details_query_3);
 
-    if(mysqli_num_rows($login_query_1_run) > 0) {
+    if(mysqli_num_rows($login_query_1_run) > 0) {//jobseeker section
         $_SESSION['auth'] = true;
 
         $userdata = mysqli_fetch_array($login_query_1_run);
@@ -97,7 +98,7 @@ if(isset($_POST['loginBtn'])){
             'education' => $details_education,
             'certifications' => $details_certifications,
             'skills' => $details_skills
-        ];
+        ];//storing jobseeker profile details in session
 
         $_SESSION['message'] = "Logged In Successfully";
         if(mysqli_num_rows($details_query_3_run) > 0){
@@ -109,7 +110,7 @@ if(isset($_POST['loginBtn'])){
        
     }
 
-    elseif (mysqli_num_rows($login_query_2_run) > 0) {
+    elseif (mysqli_num_rows($login_query_2_run) > 0) {//recruiter section
         $_SESSION['auth'] = true;
 
         $userdata = mysqli_fetch_array($login_query_2_run);
