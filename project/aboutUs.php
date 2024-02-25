@@ -75,9 +75,7 @@
             <p>JobWalla! is created by a group of people who were saddened by the students struggle to find job for their career growth so they developed a system to easily connect recuriters with students and help them carve the path to their succesful future and make them champions .</p>
         </div>
     </section>
-    <footer>
-        &copy; 2024 JobWalla!. All rights reserved.
-    </footer>
+    <?php include "footer.php"; ?>
 </body>
 
 </html>

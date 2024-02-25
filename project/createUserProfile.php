@@ -192,8 +192,6 @@
         </div>
     </section>
 
-    <footer>
-        &copy; 2024 JobSeeker. All rights reserved.
-    </footer>
+    <?php include "footer.php"; ?>
 </body>
 </html>

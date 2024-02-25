@@ -252,9 +252,7 @@ unset($_SESSION['message']);
     
 
 ?>
-    <footer>
-        &copy; 2024 JobSeeker. All rights reserved.
-    </footer>
+  <?php include "footer.php"; ?>
 </body>
 
 </html>

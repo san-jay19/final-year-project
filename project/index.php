@@ -171,10 +171,7 @@ unset($_SESSION['message']);
             <a href="mailto:info@yourjobportal.com" class="cta-button">Email Us</a>
         </div>
     </section>
-
-    <footer>
-        &copy; 2024 JobWalla!. All rights reserved.
-    </footer>
+    <?php include "footer.php"; ?>
 
 </body>
 

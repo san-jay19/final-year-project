@@ -76,6 +76,6 @@ include "auth.php";
             </div>
         </div>
     </div>
-    
+    <?php include "footer.php"; ?>
 </body>
 </html>

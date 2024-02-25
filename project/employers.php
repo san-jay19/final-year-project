@@ -88,9 +88,7 @@
             <a href="userSignIn.php" class="cta-button">Get Started</a>
         </div>
     </section>
-    <footer>
-        &copy; 2024 JobWalla!. All rights reserved.
-    </footer>
+    <?php include "footer.php"; ?>
 </body>
 
 </html>

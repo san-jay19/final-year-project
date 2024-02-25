@@ -85,9 +85,7 @@
             </div>
         </section>
     </center>
-    <footer>
-        &copy; 2024 JobWalla!. All rights reserved.
-    </footer>
+    <?php include "footer.php"; ?>
 </body>
 
 </html>
