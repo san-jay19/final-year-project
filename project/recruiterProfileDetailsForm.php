@@ -1,6 +1,19 @@
 <?php
-session_start();
+include "auth.php";
+if(isset($_SESSION['auth'])){
+    if($_SESSION['auth_user']['category'] <> "recruiter"){
+        $_SESSION['message'] = "Access Denied, You are not allowed to access this page!";
+        header('Location: index.php');
+        exit();
+    }
+}
+else{
+    $_SESSION['message'] = "Access Denied, Please Login!";
+    header('Location: userLogin.php');
+    exit();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,7 +1,20 @@
 <?php
 include "auth.php";
-?>
 
+if(isset($_SESSION['auth'])){
+    if($_SESSION['auth_user']['category'] <> "job_seeker"){
+        $_SESSION['message'] = "Access Denied, You are not allowed to access this page!";
+        header('Location: index.php');
+        exit();
+    }
+}
+else{
+    $_SESSION['message'] = "Access Denied, Please Login!";
+    header('Location: userLogin.php');
+    exit();
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +41,27 @@ include "auth.php";
         .column {
             width: 48%;
         }
+        .alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
 
         .details {
             background-color: #fff;
@@ -47,10 +81,30 @@ include "auth.php";
             text-align: center;
             color: #333;
         }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 2px solid #fff;
+        }
     </style>
 </head>
 <body>
-    <?php require "navBar.php"; ?>
+    <?php include('navBar.php'); ?>
+   <?php if(isset($_SESSION['message'])){
+    ?>
+<div class="alert">
+<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+<strong>Hey!</strong> <?=$_SESSION['message'] ?>
+</div>
+<?php
+unset($_SESSION['message']);
+}
+?>
     <h2>Your Details</h2>
     <div class="container">
         <div class="column">
@@ -76,6 +130,7 @@ include "auth.php";
             </div>
         </div>
     </div>
-    <?php include "footer.php"; ?>
+    <?php require "footer.php"; ?>
 </body>
 </html>
+

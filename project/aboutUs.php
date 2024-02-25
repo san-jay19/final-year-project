@@ -1,3 +1,15 @@
+<?php
+session_start();
+if(isset($_SESSION['auth'])){
+    if($_SESSION['auth_user']['category'] <> "job_seeker"){
+        header('Location: userLogin.php');
+    }
+}
+else{
+    header('Location: index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

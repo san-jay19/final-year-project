@@ -1,5 +1,18 @@
 <?php
 session_start();
+
+if(isset($_SESSION['auth'])){
+    if($_SESSION['auth_user']['category'] <> "job_seeker"){
+        $_SESSION['message'] = "Access Denied, You are not allowed to access this page!";
+        header('Location: index.php');
+        exit();
+    }
+}
+else{
+    $_SESSION['message'] = "Access Denied, Please Login!";
+    header('Location: userLogin.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +47,27 @@ session_start();
             align-items: center;
             border-bottom: 2px solid #fff;
         }
+        .alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
 
         .logo img {
             width: 50px;
@@ -147,7 +181,17 @@ session_start();
     </style>
 </head>
 <body>
-    <?php require "navBar.php"; ?>
+    <?php include('navBar.php'); ?>
+   <?php if(isset($_SESSION['message'])){
+    ?>
+<div class="alert">
+<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+<strong>Hey!</strong> <?=$_SESSION['message'] ?>
+</div>
+<?php
+unset($_SESSION['message']);
+}
+?>
 
     <br>
     <center><h2>Update Your Profile</h2></center>

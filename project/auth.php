@@ -68,6 +68,8 @@ if(isset($_POST['loginBtn'])){
 
         $userdetails = mysqli_fetch_array($details_query_1_run);
 
+        $count = mysqli_num_rows($details_query_3_run);
+        
         $username = $userdata['username'];
         $useremail = $userdata['email'];
         $usercategory = $userdata['category'];
