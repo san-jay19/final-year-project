@@ -41,6 +41,15 @@ if(isset($_POST['register_btn'])){
 
     }
 }
+if(isset($_POST['jb_submit'])){
+    $name = mysqli_real_escape_string($conn,$_POST['name']);
+    $username = mysqli_real_escape_string($conn,$_POST['username']);
+    $email = mysqli_real_escape_string($conn,$_POST['email']);
+
+    $insert_query = "INSERT INTO jobseekerdetails(username,name,phoneno,email,category) VALUES('$name','$username','$email','$password','$usercategory')";
+    $insert_query_run = mysqli_query($conn,$insert_query);
+
+}
 
 if(isset($_POST['loginBtn'])){
 
@@ -53,6 +62,7 @@ if(isset($_POST['loginBtn'])){
     $details_query_1 = "SELECT * FROM jobseekerdetails WHERE username='$username' ";//Fetch details from jobseeker table 
     $details_query_2 = "SELECT * FROM recruiterdetails WHERE username='$username' ";//Fetch details from recruiter table 
     $details_query_3 = "SELECT name,phoneno,email,address,experience,education,certifications,skills FROM jobseekerdetails WHERE username='$username'";//Fetch details from jobseekerdetails tbale
+    //$details_query_4 = "SELECT name,phoneno,email,address,experience,education,certifications,skills FROM recruiterdetails WHERE username='$username'";//Fetch details from recruiterdetails tbale
 
     $login_query_1_run = mysqli_query($conn , $login_query_1);
     $login_query_2_run = mysqli_query($conn , $login_query_2);
@@ -116,6 +126,15 @@ if(isset($_POST['loginBtn'])){
         $_SESSION['auth'] = true;
 
         $userdata = mysqli_fetch_array($login_query_2_run);
+        $userdetails = mysqli_fetch_array($details_query_2_run);
+
+        $details_username = $userdetails['username'];
+        $details_name = $userdetails['name'];
+        $details_phoneno = $userdetails['phoneno'];
+        $details_email = $userdetails['email'];
+        $details_address = $userdetails['address'];
+        $details_about = $userdetails['about'];
+        $details_ccv = $userdetails['ccv'];
 
         $username = $userdata['username'];
         $useremail = $userdata['email'];
@@ -125,6 +144,16 @@ if(isset($_POST['loginBtn'])){
             'username' => $username,
             'email' => $useremail,
             'category' =>$usercategory
+        ];
+
+        $_SESSION['user_details'] = [
+            'username' => $details_username,
+            'name' => $details_name,
+            'phoneno' => $details_phoneno,
+            'email' => $details_email,
+            'address' => $details_address,
+            'about' => $details_about,
+            'ccv' => $details_ccv
         ];
 
 

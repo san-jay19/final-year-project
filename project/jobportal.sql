@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2024 at 06:41 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Generation Time: Feb 28, 2024 at 11:47 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `jobseeker` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `category` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `jobseeker`
@@ -60,7 +60,7 @@ CREATE TABLE `jobseekerdetails` (
   `education` mediumtext NOT NULL,
   `certifications` mediumtext NOT NULL,
   `skills` mediumtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `jobseekerdetails`
@@ -81,7 +81,7 @@ CREATE TABLE `recruiter` (
   `email` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
   `category` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `recruiter`
@@ -89,6 +89,22 @@ CREATE TABLE `recruiter` (
 
 INSERT INTO `recruiter` (`name`, `username`, `email`, `password`, `category`) VALUES
 ('recruiter', 'recruiter', 'recruiter@gmail.com', 'sanjay', 'recruiter');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recruiterdetails`
+--
+
+CREATE TABLE `recruiterdetails` (
+  `name` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phoneno` int(100) NOT NULL,
+  `address` mediumtext NOT NULL,
+  `about` mediumtext NOT NULL,
+  `ccv` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Indexes for dumped tables
@@ -113,6 +129,12 @@ ALTER TABLE `recruiter`
   ADD PRIMARY KEY (`username`);
 
 --
+-- Indexes for table `recruiterdetails`
+--
+ALTER TABLE `recruiterdetails`
+  ADD KEY `username` (`username`);
+
+--
 -- Constraints for dumped tables
 --
 
@@ -121,6 +143,12 @@ ALTER TABLE `recruiter`
 --
 ALTER TABLE `jobseekerdetails`
   ADD CONSTRAINT `jobseekerdetails_ibfk_1` FOREIGN KEY (`username`) REFERENCES `jobseeker` (`username`);
+
+--
+-- Constraints for table `recruiterdetails`
+--
+ALTER TABLE `recruiterdetails`
+  ADD CONSTRAINT `recruiterdetails_ibfk_1` FOREIGN KEY (`username`) REFERENCES `recruiter` (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
