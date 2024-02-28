@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2024 at 08:00 AM
+-- Generation Time: Feb 28, 2024 at 06:41 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -40,7 +40,55 @@ CREATE TABLE `jobseeker` (
 --
 
 INSERT INTO `jobseeker` (`name`, `username`, `email`, `password`, `category`) VALUES
-('sanjay', 'sanjay', 'sanjay@gmail.ocm', 'sanjay', 'job_seeker');
+('jobseeker', 'jobseeker', 'jobseeker@gmail.com', 'sanjay', 'job_seeker'),
+('sanjay', 'sanjay', 'sanjay@gmail.ocm', 'sanjay', 'job_seeker'),
+('sanjay', 'sanjay1904', 'sanjay@gmail.com', 'sanjay', 'job_seeker');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobseekerdetails`
+--
+
+CREATE TABLE `jobseekerdetails` (
+  `username` varchar(200) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `phoneno` int(10) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `experience` mediumtext NOT NULL,
+  `education` mediumtext NOT NULL,
+  `certifications` mediumtext NOT NULL,
+  `skills` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `jobseekerdetails`
+--
+
+INSERT INTO `jobseekerdetails` (`username`, `name`, `phoneno`, `email`, `address`, `experience`, `education`, `certifications`, `skills`) VALUES
+('sanjay', 'sanjay', 919292292, 'sanjay@gmail.com', 'djfhjdgbdfjhbgdhfb', 'sdhjfbsdjhgbfdjhgbfdjghdfbg', 'hjdsgfbfdjhgbfdjhgbjdhfbgjfdhbgdfjhgbdfjhgbfdj', 'hfgbdfjhgbdfjhgbfdjghbdfjgbfdjghbfd', 'jdfhbgjfdhbgfdjhg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recruiter`
+--
+
+CREATE TABLE `recruiter` (
+  `name` varchar(200) NOT NULL,
+  `username` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `category` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `recruiter`
+--
+
+INSERT INTO `recruiter` (`name`, `username`, `email`, `password`, `category`) VALUES
+('recruiter', 'recruiter', 'recruiter@gmail.com', 'sanjay', 'recruiter');
 
 --
 -- Indexes for dumped tables
@@ -51,6 +99,28 @@ INSERT INTO `jobseeker` (`name`, `username`, `email`, `password`, `category`) VA
 --
 ALTER TABLE `jobseeker`
   ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `jobseekerdetails`
+--
+ALTER TABLE `jobseekerdetails`
+  ADD KEY `username` (`username`);
+
+--
+-- Indexes for table `recruiter`
+--
+ALTER TABLE `recruiter`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `jobseekerdetails`
+--
+ALTER TABLE `jobseekerdetails`
+  ADD CONSTRAINT `jobseekerdetails_ibfk_1` FOREIGN KEY (`username`) REFERENCES `jobseeker` (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

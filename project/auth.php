@@ -118,7 +118,7 @@ if(isset($_POST['loginBtn'])){
         $userdata = mysqli_fetch_array($login_query_2_run);
 
         $username = $userdata['username'];
-        $useremail = $user['email'];
+        $useremail = $userdata['email'];
         $usercategory = $userdata['category'];
 
         $_SESSION['auth_user'] = [
