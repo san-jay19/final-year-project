@@ -255,7 +255,7 @@ unset($_SESSION['message']);
 
         
         <div class="form-group">
-            <button type="jb_submit">Submit</button>
+            <button type="submit" name="jb_submit">Submit</button>
         </div>
     </form>
     <br>

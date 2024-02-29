@@ -1,6 +1,6 @@
 <?php 
-session_start();
 require "connection.php";
+require "auth.php";
 
 if(isset($_POST['submit'])){
     $username = $_POST['username'];
@@ -21,8 +21,12 @@ if(isset($_POST['jb_submit'])){
     $education = mysqli_real_escape_string($conn,$_POST['education']);
     $skills =  mysqli_real_escape_string($conn,$_POST['skills']);
 
-    $insert_query = "INSERT INTO jobseekerdetails(username,name,phoneno,email,address,experience,education,certifications,skills) VALUES('$username','$name','$phone',$email','$address','$workExperience','$education','$certification','$skills')";
+    $insert_query = "INSERT INTO jobseekerdetails (username, name, phoneno, email, address, experience, education, certifications, skills) VALUES ('$username','$name','$phone','$email','$address','$workExperience','$education','$certification','$skills')";
     $insert_query_run = mysqli_query($conn,$insert_query);
+
+    if (!($insert_query_run)) {
+        echo("Error description: " . mysqli_error($conn));
+      }
 }
 
 ?>
