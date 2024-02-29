@@ -14,6 +14,9 @@ include "auth.php";
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: lightgray;
+}
 .alert {
   padding: 20px;
   background-color: #f44336;

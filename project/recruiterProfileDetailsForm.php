@@ -189,7 +189,7 @@ else{
 
         <div class="form-group">
             <label for="address">Address:</label>
-            <input type="text" id="address" name="address">
+            <textarea id="address" name="address" rows="8" required></textarea>
         </div>
 
         <div class="form-group">
@@ -210,8 +210,9 @@ else{
         </div>
         
         <div class="form-group">
-            <button type="submit">Submit</button>
+            <button type="r_submit">Submit</button>
         </div>
+   
     </form>
     <br>
     <br>

@@ -21,6 +21,9 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
         }
+        body{
+    background-color: lightgray;
+}
 
         .container {
             width: 80%;

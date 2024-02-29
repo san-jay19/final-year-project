@@ -15,6 +15,9 @@
             line-height: 1.6;
             background-color: #f4f4f4;
         }
+        body{
+    background-color: lightgray;
+}
 
         header {
             background-color: #333;

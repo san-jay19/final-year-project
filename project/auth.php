@@ -41,7 +41,8 @@ if(isset($_POST['register_btn'])){
 
     }
 }
-if(isset($_POST['jb_submit'])){
+
+if(isset($_POST['r_submit'])){
     $name = mysqli_real_escape_string($conn,$_POST['name']);
     $username = mysqli_real_escape_string($conn,$_POST['username']);
     $email = mysqli_real_escape_string($conn,$_POST['email']);
@@ -50,6 +51,7 @@ if(isset($_POST['jb_submit'])){
     $insert_query_run = mysqli_query($conn,$insert_query);
 
 }
+
 
 if(isset($_POST['loginBtn'])){
 

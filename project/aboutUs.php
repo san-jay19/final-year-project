@@ -27,7 +27,9 @@ else{
             margin: 0;
             padding: 0;
         }
-
+        body{
+    background-color: lightgray;
+}
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;

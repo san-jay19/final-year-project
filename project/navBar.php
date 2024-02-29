@@ -99,7 +99,7 @@
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="jobSeekers.php">Job Seekers</a></li>
-                <li><a href="employers.php">Employers</a></li>
+                <li><a href="employers.php">Recruiters</a></li>
                 <li><a href="aboutUs.php">About Us</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <?php 

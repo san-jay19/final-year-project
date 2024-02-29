@@ -1,0 +1,28 @@
+<?php 
+session_start();
+require "connection.php";
+
+if(isset($_POST['submit'])){
+    $username = $_POST['username'];
+    $job = $_POST['job'];
+    $insert_query = "INSERT INTO job_listings(username,job) VALUES('$username','$job')";
+    $insert_query_run = mysqli_query($conn,$insert_query);
+    header('Location: viewJobs.php');
+}
+
+if(isset($_POST['jb_submit'])){
+    $name = mysqli_real_escape_string($conn,$_POST['fullName']);
+    $username = mysqli_real_escape_string($conn,$_SESSION['auth_user']['username']);
+    $email = mysqli_real_escape_string($conn,$_POST['email']);
+    $phone = mysqli_real_escape_string($conn,$_POST['phone']);
+    $address = mysqli_real_escape_string($conn,$_POST['address']);
+    $workExperience = mysqli_real_escape_string($conn,$_POST['workExperience']);
+    $certification = mysqli_real_escape_string($conn,$_POST['certifications']);
+    $education = mysqli_real_escape_string($conn,$_POST['education']);
+    $skills =  mysqli_real_escape_string($conn,$_POST['skills']);
+
+    $insert_query = "INSERT INTO jobseekerdetails(username,name,phoneno,email,address,experience,education,certifications,skills) VALUES('$username','$name','$phone',$email','$address','$workExperience','$education','$certification','$skills')";
+    $insert_query_run = mysqli_query($conn,$insert_query);
+}
+
+?>

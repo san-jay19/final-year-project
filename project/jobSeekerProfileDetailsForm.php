@@ -197,7 +197,7 @@ unset($_SESSION['message']);
     <center><h2>Update Your Profile</h2></center>
     <br>
     
-    <form action="auth.php" method="post" enctype="multipart/form-data">
+    <form action="post.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="profilePicture">Profile Picture:</label>
             <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
@@ -225,7 +225,7 @@ unset($_SESSION['message']);
 
         <div class="form-group">
             <label for="resume">Resume/CV Upload:</label>
-            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
         </div>
 
         <div class="form-group">
@@ -249,19 +249,10 @@ unset($_SESSION['message']);
         </div>
         
         <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        
-        <div class="form-group">
             <label for="certifications">Certifications or Licenses:</label>
             <input type="text" id="certifications" name="certifications">
         </div>
 
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
         
         <div class="form-group">
             <button type="jb_submit">Submit</button>

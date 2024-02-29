@@ -110,11 +110,11 @@ unset($_SESSION['message']);
         <div class="column">
             <div class="details">
                 <h3>Company Information</h3>
-                <p><strong>Company Name:</strong> <?php echo $_SESSION['user_details']['username']; ?></p>
+                <p><strong>Company Name:</strong> <?php echo $_SESSION['user_details']['name']; ?></p>
                 <p><strong>Phone Number:</strong> <?php echo $_SESSION['user_details']['phoneno']; ?></p>
                 <p><strong>Email Address:</strong> <?php echo$_SESSION['user_details']['email']; ?></p>
                 <p><strong>Address:</strong> <?php echo $_SESSION['user_details']['address'];?></p>
-                <p><strong>Profile Picture:</strong> <img src="<?php echo $_SESSION['user_details']['name']; ?>" alt="Profile Picture"></p>
+                <p><strong>Profile Picture:</strong> <img src="<?php /*echo $_SESSION['user_details']['name'];*/ ?>" alt="Profile Picture"></p>
             </div>
         </div>
 
@@ -129,6 +129,16 @@ unset($_SESSION['message']);
 
         
     </div>
+  
+                   
+                <div class="form-group">
+                     <span onclick="location.href='viewUsers.php'">Click here to see the users </span>
+                </div>
+              
+                <div class="form-group">
+                     <span onclick="location.href='jobListing.php'">Click here to post Jobs </span>
+                </div>
+              
     <?php require "footer.php"; ?>
 </body>
 </html>

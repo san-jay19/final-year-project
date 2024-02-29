@@ -28,6 +28,64 @@ else{
             line-height: 1.6;
             background-color: #f4f4f4;
         }
+        
+        form h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
         .container {
             width: 80%;
@@ -110,10 +168,10 @@ unset($_SESSION['message']);
         <div class="column">
             <div class="details">
                 <h3>Personal Information</h3>
-                <p><strong>Full Name:</strong> <?php echo $_SESSION['user_details']['username']; ?></p>
-                <p><strong>Phone Number:</strong> <?php echo $_SESSION['user_details']['name']; ?></p>
-                <p><strong>Email Address:</strong> <?php echo$_SESSION['user_details']['name']; ?></p>
-                <p><strong>Address:</strong> <?php echo $_SESSION['user_details']['name'];?></p>
+                <p><strong>Full Name:</strong> <?php echo $_SESSION['user_details']['name']; ?></p>
+                <p><strong>Phone Number:</strong> <?php echo $_SESSION['user_details']['phoneno']; ?></p>
+                <p><strong>Email Address:</strong> <?php echo$_SESSION['user_details']['email']; ?></p>
+                <p><strong>Address:</strong> <?php echo $_SESSION['user_details']['address'];?></p>
                 <p><strong>Profile Picture:</strong> <img src="<?php echo $_SESSION['user_details']['name']; ?>" alt="Profile Picture"></p>
             </div>
         </div>
@@ -121,15 +179,21 @@ unset($_SESSION['message']);
         <div class="column">
             <div class="details">
                 <h3>Professional Information</h3>
-                <p><strong>Resume/CV:</strong> <?php echo $_SESSION['user_details']['name']; ?></p>
-                <p><strong>Work Experience:</strong> <?php echo nl2br($_SESSION['user_details']['name']); ?></p>
-                <p><strong>Education:</strong> <?php echo nl2br($_SESSION['user_details']['name']); ?></p>
-                <p><strong>Skills:</strong> <?php echo $_SESSION['user_details']['name']; ?></p>
-                <p><strong>Certifications/Licenses:</strong> <?php echo $_SESSION['user_details']['name']; ?></p>
+                <p><strong>Resume/CV:</strong> <?php /*echo $_SESSION['user_details']['name']; */?></p>
+                <p><strong>Work Experience:</strong> <?php echo nl2br($_SESSION['user_details']['experience']); ?></p>
+                <p><strong>Education:</strong> <?php echo nl2br($_SESSION['user_details']['education']); ?></p>
+                <p><strong>Skills:</strong> <?php echo $_SESSION['user_details']['skills']; ?></p>
+                <p><strong>Certifications/Licenses:</strong> <?php echo $_SESSION['user_details']['certifications']; ?></p>
                 <p><strong>Username:</strong> <?php echo $_SESSION['user_details']['name']; ?></p>
             </div>
         </div>
     </div>
+    <center>
+    
+    <span onclick="location.href='viewJobs.php'">Click here to see the jobs </span>
+              
+    </center>
+    
     <?php require "footer.php"; ?>
 </body>
 </html>
