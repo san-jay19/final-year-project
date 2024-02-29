@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2024 at 11:47 AM
+-- Generation Time: Feb 29, 2024 at 07:06 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -40,6 +40,7 @@ CREATE TABLE `jobseeker` (
 --
 
 INSERT INTO `jobseeker` (`name`, `username`, `email`, `password`, `category`) VALUES
+('Anto', 'anto', 'anto@gmail.com', 'anto', 'job_seeker'),
 ('jobseeker', 'jobseeker', 'jobseeker@gmail.com', 'sanjay', 'job_seeker'),
 ('sanjay', 'sanjay', 'sanjay@gmail.ocm', 'sanjay', 'job_seeker'),
 ('sanjay', 'sanjay1904', 'sanjay@gmail.com', 'sanjay', 'job_seeker');
@@ -67,7 +68,29 @@ CREATE TABLE `jobseekerdetails` (
 --
 
 INSERT INTO `jobseekerdetails` (`username`, `name`, `phoneno`, `email`, `address`, `experience`, `education`, `certifications`, `skills`) VALUES
-('sanjay', 'sanjay', 919292292, 'sanjay@gmail.com', 'djfhjdgbdfjhbgdhfb', 'sdhjfbsdjhgbfdjhgbfdjghdfbg', 'hjdsgfbfdjhgbfdjhgbjdhfbgjfdhbgdfjhgbdfjhgbfdj', 'hfgbdfjhgbdfjhgbfdjghbdfjgbfdjghbfd', 'jdfhbgjfdhbgfdjhg');
+('sanjay', 'sanjay', 919292292, 'sanjay@gmail.com', 'djfhjdgbdfjhbgdhfb', 'sdhjfbsdjhgbfdjhgbfdjghdfbg', 'hjdsgfbfdjhgbfdjhgbjdhfbgjfdhbgdfjhgbdfjhgbfdj', 'hfgbdfjhgbdfjhgbfdjghbdfjgbfdjghbfd', 'jdfhbgjfdhbgfdjhg'),
+('jobseeker', 'Sanjay.S', 919293949, 'sanjay@gmail.com', 'MettuKalani Street', 'Fresher', 'BCA', 'Oracle Academy', 'Java');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_listings`
+--
+
+CREATE TABLE `job_listings` (
+  `username` varchar(100) NOT NULL,
+  `job` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `job_listings`
+--
+
+INSERT INTO `job_listings` (`username`, `job`) VALUES
+('recruiter', 'Software Engineer'),
+('Garner', 'Associate Analyst'),
+('recruiter', 'Data Engineer'),
+('recruiter', 'visual specialist');
 
 -- --------------------------------------------------------
 
@@ -105,6 +128,13 @@ CREATE TABLE `recruiterdetails` (
   `about` mediumtext NOT NULL,
   `ccv` mediumtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `recruiterdetails`
+--
+
+INSERT INTO `recruiterdetails` (`name`, `username`, `email`, `phoneno`, `address`, `about`, `ccv`) VALUES
+('Company', 'recruiter', 'company@gmail.com', 919293949, 'Company address', 'Created at 1977', 'We practice thorough safety measures');
 
 --
 -- Indexes for dumped tables
