@@ -29,4 +29,8 @@ if(isset($_POST['jb_submit'])){
       }
 }
 
+if(isset($_POST['search'])){
+    echo "Hello World";
+}
+
 ?>

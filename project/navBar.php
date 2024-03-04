@@ -98,8 +98,7 @@
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="jobSeekers.php">Job Seekers</a></li>
-                <li><a href="employers.php">Recruiters</a></li>
+               
                 <li><a href="aboutUs.php">About Us</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <?php 
@@ -113,9 +112,12 @@
                             
                     <?php if($_SESSION['auth_user']['category']=='recruiter'){?>
                     <a href="recruiterProfileDetails.php">View Profile</a>
+                    <a href="jobListing.php">Post Jobs</a>
+                    <a href="viewUsers.php">Candidates Search</a>
                     <?php }?>
 
                     <?php if($_SESSION['auth_user']['category'] =='job_seeker'){?>
+                    <a href="viewJobs.php">Jobs</a>
                     <a href="jobSeekerProfileDetails.php">View Profile</a>
                     <?php }?>
                     <?php }?>
@@ -126,9 +128,11 @@
                 }
                 else{
                     ?>
+                     <li><a href="jobSeekers.php">Job Seekers</a></li>
+                    <li><a href="employers.php">Recruiters</a></li>
                     <li><a href="userSignIn.php">Register</a></li>
                     <li><a href="userLogin.php">Login</a></li>
-                   
+                    
                     <?php
                 }
                     ?>

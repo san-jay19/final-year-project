@@ -147,7 +147,14 @@ unset($_SESSION['message']);
         <div class="container">
             <h2>For Job Seekers</h2>
             <p>Explore limitless opportunities, build your professional profile, receive personalized job alerts, and access professional development resources to enhance your skills and advance your career.</p>
-            <a href="userSignIn.php" class="cta-button">Get Started</a>
+           
+            <?php
+            if($_SESSION['auth']){?>
+            <a href="viewJobs.php" class="cta-button">Get Started</a>
+            <?php } else{?>
+                <a href="userSignIn.php" class="cta-button">Get Started</a>
+            <?php } ?>
+
         </div>
     </section>
 
@@ -156,6 +163,10 @@ unset($_SESSION['message']);
             <h2>For Employers</h2>
             <p>Efficiently post job openings, streamline your recruitment workflow, build your employer brand, and connect with a diverse talent pool to make the best hiring decisions.</p>
             <a href="userSignIn.php" class="cta-button">Start Hiring</a>
+            <?php
+            if($_SESSION['auth']){?>
+            <a href="jobListing.php" class="cta-button">Start Hiring</a>
+            <?php } ?>
         </div>
     </section>
 
