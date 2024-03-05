@@ -61,11 +61,12 @@ else{
 <br>
 <input type="text" id="searchInput" placeholder="Search...">
 <br><br>
-
+<form action="seekerDetails.php" method="get">
 <table id="myTable">
     <thead>
         <tr>
             <th>Job Seekers</th>
+            <th>View</th>
         </tr>
     </thead>
     <tbody>
@@ -75,19 +76,20 @@ else{
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
+            foreach($result as $username) {
                 echo "<tr>";
-                echo "<td>" . $row["username"] . "</td>";
-                echo "</tr>";
+                $name = implode(" ",$username);
+                echo "<td>" . implode(" ",$username) . "</td>";
+                echo '<td><div><center>'?><a href="seekerDetails.php?id=<?=$name?>".<?='>click here to view details</a></div><center></td><tr>'?>
+                <?php //echo "</tr>";?>
+                <?php
             }
-        } else {
-            echo "<tr><td colspan='3'>No records found</td></tr>";
-        }
+        } 
         $conn->close();
         ?>
     </tbody>
 </table>
-
+</form>
 <script>
     function searchTable() {
         var input, filter, table, tr, td, i, txtValue;
