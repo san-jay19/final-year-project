@@ -108,16 +108,19 @@ else{
     <center>
     <form action="post.php" method="post" enctype="multipart/form-data">
         <h2>Job Listing Form</h2>
-
         <div class="form-group">
-            <label for="username">username</label>
-            <input type="text" id="username" name="username" required>
+            <label for="username">Comapany Name</label>
+            <input type="text" id="cname" name="cname" required>
         </div>
+      
         <div class="form-group">
             <label for="job">Job</label>
             <input type="text" id="job" name="job" required>
         </div>
-
+        <div class="form-group">
+            <label for="username">Location</label>
+            <input type="text" id="username" name="username" required>
+        </div>
         <div class="form-group">
             <button type="submit" name="submit">Submit</button>
         </div>

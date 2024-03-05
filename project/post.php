@@ -29,8 +29,22 @@ if(isset($_POST['jb_submit'])){
       }
 }
 
-if(isset($_POST['search'])){
-    echo "Hello World";
+if(isset($_POST['r_submit'])){
+    $name = mysqli_real_escape_string($conn,$_POST['fullName']);
+    $username = mysqli_real_escape_string($conn,$_SESSION['auth_user']['username']);
+    $email = mysqli_real_escape_string($conn,$_POST['email']);
+    $phone = mysqli_real_escape_string($conn,$_POST['phone']);
+    $address = mysqli_real_escape_string($conn,$_POST['address']);
+    $about = mysqli_real_escape_string($conn,$_POST['about']);
+    $ccv = mysqli_real_escape_string($conn,$_POST['ccv']);
+    
+    $insert_query = "INSERT INTO recruiterdetails(name,username,email,phoneno,address,about,ccv) VALUES('$name','$username','$email','$phone','$address','$about','$ccv')";
+    $insert_query_run = mysqli_query($conn,$insert_query);
+
+    if (!($insert_query_run)) {
+        echo("Error description: " . mysqli_error($conn));
+      }
+
 }
 
 ?>

@@ -42,15 +42,7 @@ if(isset($_POST['register_btn'])){
     }
 }
 
-if(isset($_POST['r_submit'])){
-    $name = mysqli_real_escape_string($conn,$_POST['name']);
-    $username = mysqli_real_escape_string($conn,$_POST['username']);
-    $email = mysqli_real_escape_string($conn,$_POST['email']);
 
-    $insert_query = "INSERT INTO jobseekerdetails(username,name,phoneno,email,category) VALUES('$name','$username','$email','$password','$usercategory')";
-    $insert_query_run = mysqli_query($conn,$insert_query);
-
-}
 
 
 if(isset($_POST['loginBtn'])){

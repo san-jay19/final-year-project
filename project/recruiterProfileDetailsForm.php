@@ -166,7 +166,7 @@ else{
     <center><h2>Update Company's Profile</h2></center>
     <br>
     
-    <form action="#" method="post" enctype="multipart/form-data">
+    <form action="post.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="profilePicture">Profile Picture:</label>
             <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
@@ -193,24 +193,16 @@ else{
         </div>
 
         <div class="form-group">
-            <label for="education">About the Company:</label>
-            <textarea id="education" name="education" rows="8" required></textarea>
+            <label for="about">About the Company:</label>
+            <textarea id="about" name="about" rows="8" required></textarea>
         </div>
 
         <div class="form-group">
-            <label for="workExperience">Company's Culture and Values:</label>
-            <textarea id="workExperience" name="workExperience" rows="8" required></textarea>
+            <label for="ccv">Company's Culture and Values:</label>
+            <textarea id="ccv" name="ccv" rows="8" required></textarea>
         </div>
-
-       
-
         <div class="form-group">
-            <label for="skills">Roles currently offering</label>
-            <textarea id="skills" name="skills" rows="8" required></textarea>
-        </div>
-        
-        <div class="form-group">
-            <button type="r_submit">Submit</button>
+            <button type="submit" name="r_submit">Submit</button>
         </div>
    
     </form>
