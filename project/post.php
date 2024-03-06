@@ -3,9 +3,11 @@ require "connection.php";
 require "auth.php";
 
 if(isset($_POST['submit'])){
-    $username = $_POST['username'];
+    $username = $_SESSION['auth_user']['username'];
+    $cname = $_SESSION['user_details']['name'];
     $job = $_POST['job'];
-    $insert_query = "INSERT INTO job_listings(username,job) VALUES('$username','$job')";
+    $location = $_POST['location'];
+    $insert_query = "INSERT INTO job_listings(username,companyname,job,location) VALUES('$username','$cname','$job','$location')";
     $insert_query_run = mysqli_query($conn,$insert_query);
     header('Location: viewJobs.php');
 }

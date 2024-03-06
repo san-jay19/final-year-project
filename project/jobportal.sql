@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2024 at 01:50 PM
+-- Generation Time: Mar 06, 2024 at 11:44 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -86,6 +86,17 @@ CREATE TABLE `job_listings` (
   `location` varchar(200) NOT NULL,
   `job_id` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `job_listings`
+--
+
+INSERT INTO `job_listings` (`username`, `companyname`, `job`, `location`, `job_id`) VALUES
+('recruiter', 'cname', 'Software Engineer', 'Chennai', 2),
+('recruiter', 'cname', 'Software Engineer', 'Chennai', 3),
+('recruiter', 'Vector', 'Software Engineer', 'Chennai', 4),
+('recruiter', '', 'Software Engineer', 'Chennai', 5),
+('recruiter', 'Company', 'Software Engineer', 'Chennai', 6);
 
 -- --------------------------------------------------------
 
@@ -176,7 +187,7 @@ ALTER TABLE `recruiterdetails`
 -- AUTO_INCREMENT for table `job_listings`
 --
 ALTER TABLE `job_listings`
-  MODIFY `job_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `job_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

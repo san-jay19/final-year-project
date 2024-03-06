@@ -138,7 +138,7 @@ unset($_SESSION['message']);
                 <div class="form-group">
                      <span onclick="location.href='jobListing.php'">Click here to post Jobs </span>
                 </div>
-              
+              <?php require "viewJobsInRecruiter.php";?>
     <?php require "footer.php"; ?>
 </body>
 </html>
