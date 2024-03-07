@@ -193,8 +193,10 @@ unset($_SESSION['message']);
     <span onclick="location.href='viewJobs.php'">Click here to see the jobs </span>
               
     </center>
-    
+    <?php require "viewJobsinJobSeekers.php"?>
     <?php require "footer.php"; ?>
+    <br>
+    <br>
 </body>
 </html>
 
