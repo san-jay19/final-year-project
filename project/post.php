@@ -49,4 +49,23 @@ if(isset($_POST['r_submit'])){
 
 }
 
+
+
+if(isset($_POST['jd_submit'])){
+    $roleName = mysqli_real_escape_string($conn,$_POST['roleName']);
+    $jd = mysqli_real_escape_string($conn,$_POST['jd']);
+    $requirements = mysqli_real_escape_string($conn,$_POST['requirements']);
+    $email = mysqli_real_escape_string($conn,$_POST['email']);
+    $location = mysqli_real_escape_string($conn,$_POST['location']);
+    $salary = mysqli_real_escape_string($conn,$_POST['salary']);
+    
+    $insert_query = "INSERT INTO jobdetails(name,description,location,requirements,salary,email) VALUES('$roleName','$jd','$location','$requirements','$salary','$email')";
+    $insert_query_run = mysqli_query($conn,$insert_query);
+
+    if (!($insert_query_run)) {
+        echo("Error description: " . mysqli_error($conn));
+      }
+
+}
+
 ?>

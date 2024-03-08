@@ -163,7 +163,7 @@ else{
     <?php require "navBar.php"; ?>
 
     <br>
-    <center><h2>Update Company's Profile</h2></center>
+    <center><h2>Update Job Details</h2></center>
     <br>
     
     <form action="post.php" method="post" enctype="multipart/form-data">
@@ -177,9 +177,15 @@ else{
             <input type="text" id="roleName" name="roleName" required>
         </div>
 
+        
+        <div class="form-group">
+            <label for="jd">Job description:</label>
+            <textarea type="text" id="jd" name="jd" required></textarea>
+        </div>
+
         <div class="form-group">
             <label for="requirements">Requirements:</label>
-            <input type="text" id="requirements" name="requirements" required>
+            <textarea type="text" id="requirements" name="requirements" required></textarea>
         </div>
 
         <div class="form-group">
@@ -188,19 +194,16 @@ else{
         </div>
 
         <div class="form-group">
-            <label for="address">Address:</label>
-            <textarea id="address" name="address" rows="8" required></textarea>
+            <label for="location">Job Location: </label>
+            <textarea id="location" name="location" rows="8" required></textarea>
         </div>
 
         <div class="form-group">
-            <label for="about">About the Company:</label>
-            <textarea id="about" name="about" rows="8" required></textarea>
+            <label for="salary">Salary:</label>
+            <textarea id="salary" name="salary" rows="8" required></textarea>
         </div>
 
-        <div class="form-group">
-            <label for="ccv">Company's Culture and Values:</label>
-            <textarea id="ccv" name="ccv" rows="8" required></textarea>
-        </div>
+
         <div class="form-group">
             <button type="submit" name="jd_submit">Submit</button>
         </div>

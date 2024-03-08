@@ -74,13 +74,13 @@ else{
     <tbody>
         <?php
         require "connection.php";
-        $sql = "SELECT username, job FROM job_listings";
+        $sql = "SELECT username,companyname, job FROM job_listings";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td>" . $row["username"] . "</td>";
+                echo "<td>" . $row["companyname"] . "</td>";
                 echo "<td>" . $row["job"] . "</td>";
                 echo "</tr>";
             }

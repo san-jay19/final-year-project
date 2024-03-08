@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2024 at 11:44 AM
+-- Generation Time: Mar 08, 2024 at 10:44 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -20,6 +20,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `jobportal`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobdetails`
+--
+
+CREATE TABLE `jobdetails` (
+  `id` int(100) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `description` mediumtext NOT NULL,
+  `location` mediumtext NOT NULL,
+  `requirements` mediumtext NOT NULL,
+  `salary` int(200) NOT NULL,
+  `email` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -92,11 +108,7 @@ CREATE TABLE `job_listings` (
 --
 
 INSERT INTO `job_listings` (`username`, `companyname`, `job`, `location`, `job_id`) VALUES
-('recruiter', 'cname', 'Software Engineer', 'Chennai', 2),
-('recruiter', 'cname', 'Software Engineer', 'Chennai', 3),
-('recruiter', 'Vector', 'Software Engineer', 'Chennai', 4),
-('recruiter', '', 'Software Engineer', 'Chennai', 5),
-('recruiter', 'Company', 'Software Engineer', 'Chennai', 6);
+('recruiter', 'Company', 'Financial Officer', 'Chennai', 7);
 
 -- --------------------------------------------------------
 
@@ -149,6 +161,12 @@ INSERT INTO `recruiterdetails` (`name`, `username`, `email`, `phoneno`, `address
 --
 
 --
+-- Indexes for table `jobdetails`
+--
+ALTER TABLE `jobdetails`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `jobseeker`
 --
 ALTER TABLE `jobseeker`
@@ -165,7 +183,7 @@ ALTER TABLE `jobseekerdetails`
 --
 ALTER TABLE `job_listings`
   ADD PRIMARY KEY (`job_id`),
-  ADD KEY `username` (`username`);
+  ADD KEY `job_listings_ibfk_1` (`username`);
 
 --
 -- Indexes for table `recruiter`
@@ -177,39 +195,51 @@ ALTER TABLE `recruiter`
 -- Indexes for table `recruiterdetails`
 --
 ALTER TABLE `recruiterdetails`
-  ADD KEY `username` (`username`);
+  ADD KEY `recruiterdetails_ibfk_1` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `jobdetails`
+--
+ALTER TABLE `jobdetails`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `job_listings`
 --
 ALTER TABLE `job_listings`
-  MODIFY `job_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `job_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `jobdetails`
+--
+ALTER TABLE `jobdetails`
+  ADD CONSTRAINT `jobdetails_ibfk_1` FOREIGN KEY (`id`) REFERENCES `job_listings` (`job_id`);
+
+--
 -- Constraints for table `jobseekerdetails`
 --
 ALTER TABLE `jobseekerdetails`
-  ADD CONSTRAINT `jobseekerdetails_ibfk_1` FOREIGN KEY (`username`) REFERENCES `jobseeker` (`username`);
+  ADD CONSTRAINT `jobseekerdetails_ibfk_1` FOREIGN KEY (`username`) REFERENCES `jobseeker` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `job_listings`
 --
 ALTER TABLE `job_listings`
-  ADD CONSTRAINT `job_listings_ibfk_1` FOREIGN KEY (`username`) REFERENCES `recruiter` (`username`);
+  ADD CONSTRAINT `job_listings_ibfk_1` FOREIGN KEY (`username`) REFERENCES `recruiter` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `recruiterdetails`
 --
 ALTER TABLE `recruiterdetails`
-  ADD CONSTRAINT `recruiterdetails_ibfk_1` FOREIGN KEY (`username`) REFERENCES `recruiter` (`username`);
+  ADD CONSTRAINT `recruiterdetails_ibfk_1` FOREIGN KEY (`username`) REFERENCES `recruiter` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
