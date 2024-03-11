@@ -2,12 +2,8 @@
 include "auth.php";
 
 if(isset($_SESSION['auth'])){
-    if($_SESSION['auth_user']['category'] <> "job_seeker"){
-        $_SESSION['message'] = "Access Denied, You are not allowed to access this page!";
-        header('Location: index.php');
-        exit();
     }
-}
+
 else{
     $_SESSION['message'] = "Access Denied, Please Login!";
     header('Location: userLogin.php');

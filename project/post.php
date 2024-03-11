@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
     $location = $_POST['location'];
     $insert_query = "INSERT INTO job_listings(username,companyname,job,location) VALUES('$username','$cname','$job','$location')";
     $insert_query_run = mysqli_query($conn,$insert_query);
-    header('Location: viewJobs.php');
+    header('Location: jobDetailsForm.php');
 }
 
 if(isset($_POST['jb_submit'])){
@@ -46,7 +46,7 @@ if(isset($_POST['r_submit'])){
     if (!($insert_query_run)) {
         echo("Error description: " . mysqli_error($conn));
       }
-
+      header('Location: recruiterProfileDetails.php');
 }
 
 
