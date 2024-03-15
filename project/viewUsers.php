@@ -52,6 +52,9 @@ else{
         th {
             background-color: #f2f2f2;
         }
+        body{
+            background-image: url("img.jpg");
+        }
     </style>
 </head>
 <body><?php include "navBar.php"; ?><center>

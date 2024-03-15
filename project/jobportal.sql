@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2024 at 10:44 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Generation Time: Mar 15, 2024 at 02:11 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,6 +24,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `applied_jobs`
+--
+
+CREATE TABLE `applied_jobs` (
+  `job_id` int(100) NOT NULL,
+  `username` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `applied_jobs`
+--
+
+INSERT INTO `applied_jobs` (`job_id`, `username`) VALUES
+(1, 'sanjay');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jobdetails`
 --
 
@@ -35,7 +53,14 @@ CREATE TABLE `jobdetails` (
   `requirements` mediumtext NOT NULL,
   `salary` int(200) NOT NULL,
   `email` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `jobdetails`
+--
+
+INSERT INTO `jobdetails` (`id`, `name`, `description`, `location`, `requirements`, `salary`, `email`) VALUES
+(1, 'CFO', 'CFO', 'Chennai', 'B', 20000, 'samsung@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -49,7 +74,7 @@ CREATE TABLE `jobseeker` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `category` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `jobseeker`
@@ -78,7 +103,7 @@ CREATE TABLE `jobseekerdetails` (
   `education` mediumtext NOT NULL,
   `certifications` mediumtext NOT NULL,
   `skills` mediumtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `jobseekerdetails`
@@ -101,14 +126,14 @@ CREATE TABLE `job_listings` (
   `job` varchar(100) NOT NULL,
   `location` varchar(200) NOT NULL,
   `job_id` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `job_listings`
 --
 
 INSERT INTO `job_listings` (`username`, `companyname`, `job`, `location`, `job_id`) VALUES
-('recruiter', 'Company', 'Financial Officer', 'Chennai', 7);
+('samsung', 'Samsung', 'CFO', 'CHENNAI', 1);
 
 -- --------------------------------------------------------
 
@@ -122,15 +147,17 @@ CREATE TABLE `recruiter` (
   `email` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
   `category` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `recruiter`
 --
 
 INSERT INTO `recruiter` (`name`, `username`, `email`, `password`, `category`) VALUES
+('Company', 'mi', 'company@gmail.com', 'sanjay', 'recruiter'),
 ('recruiter', 'recruiter', 'recruiter@gmail.com', 'sanjay', 'recruiter'),
-('DE Shaw', 'recruiter2', 'recruiter2@gmail.com', 'sanjay', 'recruiter');
+('DE Shaw', 'recruiter2', 'recruiter2@gmail.com', 'sanjay', 'recruiter'),
+('Samsung', 'samsung', 'samsung@gmail.com', 'sanjay', 'recruiter');
 
 -- --------------------------------------------------------
 
@@ -146,7 +173,7 @@ CREATE TABLE `recruiterdetails` (
   `address` mediumtext NOT NULL,
   `about` mediumtext NOT NULL,
   `ccv` mediumtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `recruiterdetails`
@@ -154,11 +181,21 @@ CREATE TABLE `recruiterdetails` (
 
 INSERT INTO `recruiterdetails` (`name`, `username`, `email`, `phoneno`, `address`, `about`, `ccv`) VALUES
 ('Company', 'recruiter', 'company@gmail.com', 919293949, 'Company address', 'Created at 1977', 'We practice thorough safety measures'),
-('DE Shaw', 'recruiter2', 'recruiter2@gmail.com', 2147483647, 'no1', 'no2', 'no3');
+('DE Shaw', 'recruiter2', 'recruiter2@gmail.com', 2147483647, 'no1', 'no2', 'no3'),
+('Xiaomi', 'mi', 'mi@gmail.com', 2147483647, 'China', 'MObile Phones', 'NO values'),
+('Xiaomi', 'mi', 'mi@gmail.com', 2147483647, 'China', 'MObile Phones', 'NO values'),
+('Samsung', 'samsung', 'samsung@gmail.com', 2147483647, 'South Korea', 'All Kinds of Hardware', 'Values are for new companiees');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `applied_jobs`
+--
+ALTER TABLE `applied_jobs`
+  ADD KEY `job_id` (`job_id`),
+  ADD KEY `username` (`username`);
 
 --
 -- Indexes for table `jobdetails`
@@ -205,17 +242,24 @@ ALTER TABLE `recruiterdetails`
 -- AUTO_INCREMENT for table `jobdetails`
 --
 ALTER TABLE `jobdetails`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `job_listings`
 --
 ALTER TABLE `job_listings`
-  MODIFY `job_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `job_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `applied_jobs`
+--
+ALTER TABLE `applied_jobs`
+  ADD CONSTRAINT `applied_jobs_ibfk_1` FOREIGN KEY (`job_id`) REFERENCES `job_listings` (`job_id`),
+  ADD CONSTRAINT `applied_jobs_ibfk_2` FOREIGN KEY (`username`) REFERENCES `jobseeker` (`username`);
 
 --
 -- Constraints for table `jobdetails`

@@ -1,6 +1,6 @@
 <?php
 include "auth.php";
-
+error_reporting(E_ERROR | E_PARSE);
 if(isset($_SESSION['auth'])){
     if($_SESSION['auth_user']['category'] <> "job_seeker"){
         $_SESSION['message'] = "Access Denied, You are not allowed to access this page!";
@@ -26,7 +26,7 @@ else{
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            background-color: #f4f4f4;
+            background-image: url("img.jpg");
         }
         
         form h2 {

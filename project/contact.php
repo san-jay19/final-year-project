@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,10 +21,8 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
+            background-image: url("img.jpg");
         }
-        body{
-    background-color: lightgray;
-}
 
         .container {
             width: 80%;

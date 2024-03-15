@@ -1,14 +1,4 @@
-<?php
-session_start();
-if(isset($_SESSION['auth'])){
-    if($_SESSION['auth_user']['category'] <> "job_seeker"){
-        header('Location: userLogin.php');
-    }
-}
-else{
-    header('Location: index.php');
-}
-?>
+<?php session_start()?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +23,7 @@ else{
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
+            background-image: url("img.jpg");
         }
 
         .container {

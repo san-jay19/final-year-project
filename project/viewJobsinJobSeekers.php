@@ -49,7 +49,7 @@
     <thead>
         <tr>
             <th>Company Name</th>
-            <th>Jobs Currently Offering</th>
+            <th>Jobs</th>
         </tr>
     </thead>
     <tbody>

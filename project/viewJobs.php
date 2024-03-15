@@ -19,7 +19,9 @@ else{
     <title>Table Search</title>
     <style>
 
-
+        body{
+            background-image: url("img.jpg");
+        }
         h2 {
             color: #333;
             margin-bottom: 20px;
@@ -65,12 +67,14 @@ else{
         <tr>
             <th>Company Name</th>
             <th>Jobs Currently Offering</th>
+            <th>View Details</th>
+            <th>Apply</th>
         </tr>
     </thead>
     <tbody>
         <?php
         require "connection.php";
-        $sql = "SELECT username,companyname, job FROM job_listings";
+        $sql = "SELECT username,companyname, job,job_id FROM job_listings";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -78,6 +82,9 @@ else{
                 echo "<tr>";
                 echo "<td>" . $row["companyname"] . "</td>";
                 echo "<td>" . $row["job"] . "</td>";
+                echo '<td><div>'?><a href="jobDetails.php?id=<?=$row["job_id"]?>".<?='>click here to view details</a></div><center></td><tr>'?>
+                <?php echo '<td><div>'?><a href="apply.php?id=<?=$row["job_id"]?>".<?php echo '>Apply</a></div><center></td><tr>'?>
+                <?php
                 echo "</tr>";
             }
         } else {

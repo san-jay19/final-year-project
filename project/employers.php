@@ -17,12 +17,11 @@
             margin: 0;
             padding: 0;
         }
-        body{
-    background-color: lightgray;
-}
+
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
+            background-image: url("img.jpg");
         }
 
         .container {
@@ -70,8 +69,8 @@
     <br>
     <section id="job-seekers">
         <div class="container">
-            <h2>For Employers</h2>
-            <p>Are you ready to build a powerhouse team that drives your company's success? Look no further than our Employers Section – the hub of top-tier talent acquisition and recruitment tools. Whether you're a startup, small business, or a multinational corporation, we provide the resources and solutions to streamline your hiring process and attract the best candidates.
+            <h2>For Recruiters</h2>
+            <p>Are you ready to build a powerhouse team that drives your company's success? Look no further than our Recruiters Section – the hub of top-tier talent acquisition and recruitment tools. Whether you're a startup, small business, or a multinational corporation, we provide the resources and solutions to streamline your hiring process and attract the best candidates.
             <p>
         </div>
     </section>

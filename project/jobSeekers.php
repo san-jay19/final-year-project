@@ -19,7 +19,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+            line-height: 1.6;  background-image: url("img.jpg");
         }
 
         .container {

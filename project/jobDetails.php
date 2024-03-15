@@ -2,11 +2,7 @@
 include "auth.php";
 error_reporting(E_ERROR | E_PARSE);
 if(isset($_SESSION['auth'])){
-    if($_SESSION['auth_user']['category'] <> "recruiter"){
-        $_SESSION['message'] = "Access Denied, You are not allowed to access this page!";
-        header('Location: index.php');
-        exit();
-    }
+    
 }
 else{
     $_SESSION['message'] = "Access Denied, Please Login!";
@@ -153,54 +149,36 @@ else{
 </head>
 <body>
     <?php include('navBar.php'); ?>
-   <?php if(isset($_SESSION['message'])){
-    ?>
-<div class="alert">
-<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-<strong>Hey!</strong> <?=$_SESSION['message'] ?>
-</div>
-<?php
-unset($_SESSION['message']);
-}
-?>        <?php
+   <?php
 require "connection.php";
 $row=[];
 
 
 if(isset($_GET['id'])){
-$username=$_GET['id'];
-$sql = "SELECT * FROM jobseekerdetails WHERE username='$username'";
+$id=$_GET['id'];
+$sql = "SELECT * FROM jobdetails WHERE id='$id'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 }
 $conn->close();
 ?>
-    <h2>User Details</h2>
+
+    <h2>Job Details</h2>
+
     <div class="container">
         <div class="column">
             <div class="details">
-                <h3>Personal Information</h3>
-                <p><strong>Full Name:</strong> <?php echo $row['username'] ?></p>
-                <p><strong>Phone Number:</strong> <?php echo $row['phoneno']; ?></p>
-                <p><strong>Email Address:</strong> <?php echo $row['email']; ?></p>
-                <p><strong>Address:</strong> <?php echo $row['address'];?></p>
-                <p><strong>Profile Picture:</strong> <img src="<?php $row['name']; ?>" alt="Profile Picture"></p>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="details">
-                <h3>Professional Information</h3>
-                <p><strong>Resume/CV:</strong> <?php /*echo $_SESSION['user_details']['name']; */?></p>
-                <p><strong>Work Experience:</strong> <?php echo nl2br($row['experience']); ?></p>
-                <p><strong>Education:</strong> <?php echo nl2br($row['education']); ?></p>
-                <p><strong>Skills:</strong> <?php echo $row['skills']; ?></p>
-                <p><strong>Certifications/Licenses:</strong> <?php echo $row['certifications']; ?></p>
-                <p><strong>Username:</strong> <?php echo $row['name']; ?></p>
+                <h3>Job Information</h3>
+                <p><strong>Job Name:</strong> <?php echo $row['name'] ?></p>
+                <p><strong>Description</strong> <?php echo $row['description']; ?></p>
+                <p><strong>Location:</strong> <?php echo $row['location']; ?></p>
+                <p><strong>Requirements:</strong> <?php echo $row['requirements'];?></p>
+                <p><strong>Salary:</strong> <?php echo $row['salary'];?></p>
+                <p><strong>Contact Details:</strong> <?php echo $row['email'];?></p>
             </div>
         </div>
     </div>
-    <center>
+
     
 
 
@@ -208,4 +186,3 @@ $conn->close();
     <?php require "footer.php"; ?>
 </body>
 </html>
-

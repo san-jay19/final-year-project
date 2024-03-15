@@ -1,5 +1,6 @@
 <?php
 include "auth.php";
+error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +15,7 @@ include "auth.php";
     margin: 0;
     padding: 0;
 }
-body{
-    background-color: lightgray;
-}
+
 .alert {
   padding: 20px;
   background-color: #f44336;
@@ -42,6 +41,7 @@ body{
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
+    background-image: url("img.jpg");
 }
 
 section {
@@ -160,12 +160,14 @@ unset($_SESSION['message']);
 
     <section id="employers">
         <div class="container">
-            <h2>For Employers</h2>
+            <h2>For Recruiters</h2>
             <p>Efficiently post job openings, streamline your recruitment workflow, build your employer brand, and connect with a diverse talent pool to make the best hiring decisions.</p>
-            <a href="userSignIn.php" class="cta-button">Start Hiring</a>
+            
             <?php
             if($_SESSION['auth']){?>
             <a href="jobListing.php" class="cta-button">Start Hiring</a>
+            <?php } else{?>
+                <a href="userSignIn.php" class="cta-button">Start Hiring</a>
             <?php } ?>
         </div>
     </section>
