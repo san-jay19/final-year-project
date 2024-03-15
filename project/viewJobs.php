@@ -82,8 +82,8 @@ else{
                 echo "<tr>";
                 echo "<td>" . $row["companyname"] . "</td>";
                 echo "<td>" . $row["job"] . "</td>";
-                echo '<td><div>'?><a href="jobDetails.php?id=<?=$row["job_id"]?>".<?='>click here to view details</a></div><center></td><tr>'?>
-                <?php echo '<td><div>'?><a href="apply.php?id=<?=$row["job_id"]?>".<?php echo '>Apply</a></div><center></td><tr>'?>
+                echo '<td><div>'?><a href="jobDetails.php?id=<?=$row["job_id"]?>".<?='>click here to view details</a></div><center></td>'?>
+                <?php echo '<td><div>'?><a href="apply.php?id=<?=$row["job_id"]?>".<?php echo '>Apply</a></div><center></td>'?>
                 <?php
                 echo "</tr>";
             }
