@@ -130,7 +130,7 @@ unset($_SESSION['message']);
         
     </div>
   
-                   
+                   <center>
                 <div class="form-group">
                      <span onclick="location.href='viewUsers.php'">Click here to see the users </span>
                 </div>
@@ -138,6 +138,7 @@ unset($_SESSION['message']);
                 <div class="form-group">
                      <span onclick="location.href='jobListing.php'">Click here to post Jobs </span>
                 </div>
+                </center>
               <?php require "viewJobsInRecruiter.php";?>
     <?php require "footer.php"; ?>
 </body>

@@ -56,7 +56,9 @@
         <?php
         require "connection.php";
         $username = $_SESSION['auth_user']['username'];
-        $sql = "SELECT username, job FROM job_listings WHERE username='$username'";
+        $sql = "SELECT job_listings.companyname, job_listings.job
+        FROM job_listings
+        INNER JOIN applied_jobs ON job_listings.job_id = applied_jobs.job_id and applied_jobs.username = '$username'";
         $result = $conn->query($sql);
         
     if (!($result)) {
@@ -65,7 +67,7 @@
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td>" . $row["username"] . "</td>";
+                echo "<td>" . $row["companyname"] . "</td>";
                 echo "<td>" . $row["job"] . "</td>";
                 echo "</tr>";
             }
