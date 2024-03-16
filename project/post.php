@@ -22,12 +22,16 @@ if(isset($_POST['jb_submit'])){
     $certification = mysqli_real_escape_string($conn,$_POST['certifications']);
     $education = mysqli_real_escape_string($conn,$_POST['education']);
     $skills =  mysqli_real_escape_string($conn,$_POST['skills']);
-
-    $insert_query = "INSERT INTO jobseekerdetails (username, name, phoneno, email, address, experience, education, certifications, skills) VALUES ('$username','$name','$phone','$email','$address','$workExperience','$education','$certification','$skills')";
+    $pic= addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
+    $insert_query = "INSERT INTO jobseekerdetails (username, name, phoneno, email, address, experience, education, certifications, skills,pic) VALUES ('$username','$name','$phone','$email','$address','$workExperience','$education','$certification','$skills','$pic')";
     $insert_query_run = mysqli_query($conn,$insert_query);
 
     if (!($insert_query_run)) {
         echo("Error description: " . mysqli_error($conn));
+        header('Location: index.php');
+      }
+      else{
+        header('Location: jobSeekerProfileDetails.php');
       }
 }
 
@@ -39,8 +43,8 @@ if(isset($_POST['r_submit'])){
     $address = mysqli_real_escape_string($conn,$_POST['address']);
     $about = mysqli_real_escape_string($conn,$_POST['about']);
     $ccv = mysqli_real_escape_string($conn,$_POST['ccv']);
-    
-    $insert_query = "INSERT INTO recruiterdetails(name,username,email,phoneno,address,about,ccv) VALUES('$name','$username','$email','$phone','$address','$about','$ccv')";
+    $pic= addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
+    $insert_query = "INSERT INTO recruiterdetails(name,username,email,phoneno,address,about,ccv,pic) VALUES('$name','$username','$email','$phone','$address','$about','$ccv','$pic')";
     $insert_query_run = mysqli_query($conn,$insert_query);
 
     if (!($insert_query_run)) {

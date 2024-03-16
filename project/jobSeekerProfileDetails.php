@@ -27,6 +27,7 @@ else{
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             background-image: url("img.jpg");
+            background-size: cover;
         }
         
         form h2 {
@@ -172,7 +173,9 @@ unset($_SESSION['message']);
                 <p><strong>Phone Number:</strong> <?php echo $_SESSION['user_details']['phoneno']; ?></p>
                 <p><strong>Email Address:</strong> <?php echo$_SESSION['user_details']['email']; ?></p>
                 <p><strong>Address:</strong> <?php echo $_SESSION['user_details']['address'];?></p>
-                <p><strong>Profile Picture:</strong> <img src="<?php echo $_SESSION['user_details']['name']; ?>" alt="Profile Picture"></p>
+                <p><strong>Profile Picture:</strong>
+                <br>
+                <?php echo '<img src ="data:image;base64,'.base64_encode($_SESSION['user_details']['pic']).'"alt = "profile picture" style="width:100px; height:100px">' ?></p>
             </div>
         </div>
 

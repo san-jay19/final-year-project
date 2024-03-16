@@ -27,6 +27,7 @@ else{
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             background-image: url("img.jpg");
+            background-size: cover;
         }
         
         form h2 {
@@ -184,7 +185,9 @@ $conn->close();
                 <p><strong>Phone Number:</strong> <?php echo $row['phoneno']; ?></p>
                 <p><strong>Email Address:</strong> <?php echo $row['email']; ?></p>
                 <p><strong>Address:</strong> <?php echo $row['address'];?></p>
-                <p><strong>Profile Picture:</strong> <img src="<?php $row['name']; ?>" alt="Profile Picture"></p>
+                <p><strong>Profile Picture:</strong> 
+                <br>
+                <?php echo '<img src ="data:image;base64,'.base64_encode($row['pic']).'"alt = "profile picture" style="width:100px; height:100px">' ?></p>
             </div>
         </div>
 

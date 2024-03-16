@@ -54,6 +54,7 @@ else{
         }
         body{
             background-image: url("img.jpg");
+            background-size: cover;
         }
     </style>
 </head>

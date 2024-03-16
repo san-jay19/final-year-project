@@ -36,6 +36,7 @@ else{
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             background-image: url("img.jpg");
+            background-size: cover;
         }
 
         header {
@@ -168,8 +169,8 @@ else{
     
     <form action="post.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
-            <label for="profilePicture">Profile Picture:</label>
-            <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
+            <label for="image">Profile Picture:</label>
+            <input type="file" id="image" name="image" accept="image/*">
         </div>
 
         <div class="form-group">

@@ -21,6 +21,7 @@ else{
 
         body{
             background-image: url("img.jpg");
+            background-size: cover;
         }
         h2 {
             color: #333;

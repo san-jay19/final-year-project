@@ -87,6 +87,7 @@ if(isset($_POST['loginBtn'])){
         $details_education = $userdetails['education'];
         $details_certifications = $userdetails['certifications'];
         $details_skills = $userdetails['skills'];
+        $details_pic = $userdetails['pic'];
 
         $_SESSION['auth_user'] = [
             'username' => $username,
@@ -103,7 +104,8 @@ if(isset($_POST['loginBtn'])){
             'experience' => $details_experience,
             'education' => $details_education,
             'certifications' => $details_certifications,
-            'skills' => $details_skills
+            'skills' => $details_skills,
+            'pic' => $details_pic
         ];//storing jobseeker profile details in session
 
         $_SESSION['message'] = "Logged In Successfully";
@@ -129,6 +131,7 @@ if(isset($_POST['loginBtn'])){
         $details_address = $userdetails['address'];
         $details_about = $userdetails['about'];
         $details_ccv = $userdetails['ccv'];
+        $details_pic = $userdetails['pic'];
 
         $username = $userdata['username'];
         $useremail = $userdata['email'];
@@ -147,7 +150,8 @@ if(isset($_POST['loginBtn'])){
             'email' => $details_email,
             'address' => $details_address,
             'about' => $details_about,
-            'ccv' => $details_ccv
+            'ccv' => $details_ccv,
+            'pic' => $details_pic
         ];
 
 

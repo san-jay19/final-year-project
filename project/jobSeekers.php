@@ -20,6 +20,7 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;  background-image: url("img.jpg");
+            background-size: cover;
         }
 
         .container {
