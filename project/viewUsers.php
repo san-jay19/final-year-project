@@ -53,7 +53,7 @@ else{
             background-color: #f2f2f2;
         }
         body{
-            background-image: url("img.jpg");
+            background-image: url("Animated Shape.svg");
             background-size: cover;
         }
     </style>

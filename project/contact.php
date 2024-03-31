@@ -21,12 +21,18 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            background-image: url("img.jpg");
+            background-image: url("Animated Shape.svg");
             background-size: cover;
         }
 
         .container {
             width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
             margin: 0 auto;
         }
 

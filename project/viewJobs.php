@@ -20,7 +20,7 @@ else{
     <style>
 
         body{
-            background-image: url("img.jpg");
+            background-image: url("Animated Shape.svg");
             background-size: cover;
         }
         h2 {

@@ -41,13 +41,13 @@ error_reporting(E_ERROR | E_PARSE);
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-image: url("img.jpg");
+    background-image: url("Animated Shape.svg");
     background-size: cover;
 }
 
 section {
     padding: 60px 0;
-    border-bottom: 1px solid #ddd; 
+ 
 }
 
 .hero {

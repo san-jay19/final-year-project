@@ -32,7 +32,7 @@ require "connection.php";
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            background-image: url("img.jpg");
+            background-image: url("Animated Shape.svg");
             background-size: cover;
         }
 

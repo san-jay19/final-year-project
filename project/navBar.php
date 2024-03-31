@@ -49,7 +49,9 @@
             font-weight: bold;
             font-size: 16px;
         }
-
+        a:hover ,a:focus {
+  color: grey;
+}
         body,
         h1,
         h2,
