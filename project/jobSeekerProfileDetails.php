@@ -120,7 +120,14 @@ else{
 .closebtn:hover {
   color: black;
 }
+span{
+    transition: color 0.3s ease; 
+}
 
+span :hover{
+    background-color: darkblue;
+    color: white;
+}
 
         .details {
             background-color: #fff;
@@ -193,7 +200,7 @@ unset($_SESSION['message']);
     </div>
     <center>
     
-    <span onclick="location.href='viewJobs.php'">Click here to see the jobs </span>
+    <span onclick="location.href='viewJobs.php'"><b><u>Click here to see the jobs</u></b> </span>
               
     </center>
     <?php require "viewJobsinJobSeekers.php"?>

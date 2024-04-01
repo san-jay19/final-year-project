@@ -63,7 +63,14 @@ else{
   color: black;
 }
 
+.form-group{
+    transition: color 0.3s ease; 
+}
 
+.form-group :hover{
+    background-color: darkblue;
+    color: white;
+}
         .details {
             background-color: #fff;
             padding: 20px;
@@ -135,11 +142,11 @@ unset($_SESSION['message']);
   
                    <center>
                 <div class="form-group">
-                     <span onclick="location.href='viewUsers.php'">Click here to see the users </span>
+                     <span onclick="location.href='viewUsers.php'"><b><u>Click here to see the users</u></b> </span>
                 </div>
               
                 <div class="form-group">
-                     <span onclick="location.href='jobListing.php'">Click here to post Jobs </span>
+                     <span onclick="location.href='jobListing.php'"><b><u>Click here to post Jobs</u></b> </span>
                 </div>
                 </center>
               <?php require "viewJobsInRecruiter.php";?>

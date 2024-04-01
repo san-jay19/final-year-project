@@ -40,10 +40,7 @@
 <body>
     <center>
 <h2>Your Jobs</h2>
-<br>
 <input type="text" id="searchInput" placeholder="Search...">
-<br><br>
-
 <table id="myTable">
     <thead>
         <tr>
@@ -66,7 +63,7 @@
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                echo "<td>" . $row["job"] . "</td>";
+                echo "<td><b>" . $row["job"] . "</td>";
                 ?>
                 <?php echo '<td><div>'?><a href="appliedUsers.php?id=<?=$row["job_id"]?>".<?php echo '>View Job Applicants</a></div><center></td><tr>'?>
                 <?php

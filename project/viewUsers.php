@@ -83,7 +83,7 @@ else{
             foreach($result as $username) {
                 echo "<tr>";
                 $name = implode(" ",$username);
-                echo "<td>" . implode(" ",$username) . "</td>";
+                echo "<td><b>" . implode(" ",$username) . "</td>";
                 echo '<td><div><center>'?><a href="seekerDetails.php?id=<?=$name?>".<?='>click here to view details</a></div><center></td><tr>'?>
                 <?php //echo "</tr>";?>
                 <?php
