@@ -131,17 +131,21 @@ else{
         }
 
         .form-group button {
-            background-color: #4caf50;
+            background-color: #333;
             color: #fff;
             padding: 10px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             width: 100%;
+            height: 110%;
+            font-weight: bold;
+            font-size: larger;
         }
 
         .form-group button:hover {
-            background-color: #45a049;
+            background-color: darkblue;
+          
         }
 
         @media (max-width: 768px) {
@@ -157,6 +161,9 @@ else{
         span {
             color: #45a049;
             cursor: pointer;
+        }
+        label{
+            font-weight: bold;
         }
     </style>
 </head>
@@ -179,31 +186,29 @@ else{
         </div>
 
         
+ 
         <div class="form-group">
-            <label for="jd">Job description:</label>
-            <textarea type="text" id="jd" name="jd" required></textarea>
+            <label for="salary">Salary:</label>
+            <textarea id="salary" name="salary" required></textarea>
         </div>
-
         <div class="form-group">
             <label for="requirements">Requirements:</label>
             <textarea type="text" id="requirements" name="requirements" required></textarea>
         </div>
-
         <div class="form-group">
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required>
+            <label for="jd">Job description:</label>
+            <textarea type="text" id="jd" name="jd" rows="8" required></textarea>
         </div>
-
+      
         <div class="form-group">
             <label for="location">Job Location: </label>
             <textarea id="location" name="location" rows="8" required></textarea>
         </div>
 
         <div class="form-group">
-            <label for="salary">Salary:</label>
-            <textarea id="salary" name="salary" rows="8" required></textarea>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
         </div>
-
 
         <div class="form-group">
             <button type="submit" name="jd_submit">Submit</button>

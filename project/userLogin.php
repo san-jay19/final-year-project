@@ -70,7 +70,7 @@ require "connection.php";
 
         section {
             padding: 60px 0;
-            border-bottom: 1px solid #ddd;
+         
         }
 
         .container {

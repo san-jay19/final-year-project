@@ -9,8 +9,20 @@ if(isset($_POST['register_btn'])){
     $password = mysqli_real_escape_string($conn,$_POST['password']);
     $cpassword = mysqli_real_escape_string($conn,$_POST['password']);
     $usercategory = mysqli_real_escape_string($conn,$_POST['user_category']);
-
+    $check1="SELECT COUNT(*) FROM jobseeker WHERE username = '$username'";
+    $check2="SELECT COUNT(*) FROM recruiter WHERE username = '$username'";
+    $check1_run=mysqli_query($conn,$check1);
+    $check2_run=mysqli_query($conn,$check2);
+    if(($check1_run>0)||($check2_run>0)){
+        $_SESSION['message'] = "Username is already registered";
+        header('Location: userSignIn.php');
+    }
     if(($password == $cpassword) && ($usercategory == "job_seeker")){
+        if(strlen($password)<8){
+            $_SESSION['message'] = "Password must contain 8 or more characters";
+            header('Location: userSignIn.php');
+        }
+        else{
         $insert_query = "INSERT INTO jobseeker(name,username,email,password,category) VALUES('$name','$username','$email','$password','$usercategory')";
         $insert_query_run = mysqli_query($conn,$insert_query);
 
@@ -23,10 +35,14 @@ if(isset($_POST['register_btn'])){
             header('Location: userSignIn.php');
         }
 
-    }
+    }}
 
 
     if(($password == $cpassword) && ($usercategory == "recruiter")){
+         if(strlen($password)<8){
+            $_SESSION['message'] = "Password must contain 8 or more characters";
+            header('Location: userSignIn.php');
+        }else{
         $insert_query = "INSERT INTO recruiter(name,username,email,password,category) VALUES('$name','$username','$email','$password','$usercategory')";
         $insert_query_run = mysqli_query($conn,$insert_query);
 
@@ -41,7 +57,7 @@ if(isset($_POST['register_btn'])){
 
     }
 }
-
+}
 
 
 

@@ -65,7 +65,8 @@ h2 {
 
 p {
     color: #666;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .cta-button {

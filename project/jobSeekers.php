@@ -30,7 +30,8 @@
 
         p {
             color: #666;
-            font-size: 25px;
+            font-size: 23px;
+            font-weight: bold;
         }
 
         .cta-button {

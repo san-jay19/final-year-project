@@ -35,6 +35,7 @@
         p {
             color: #666;
             font-size: 25px;
+            font-weight: bold;
         }
 
         .cta-button {
